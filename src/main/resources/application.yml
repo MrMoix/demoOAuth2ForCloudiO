@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/myoauth2
+    username: moix
+    password: password
+    driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/cloudio
+          jwk-set-uri: http://localhost:8080/realms/cloudio/protocol/openid-connect/certs
